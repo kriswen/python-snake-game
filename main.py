@@ -35,16 +35,19 @@ while game_is_on:
 
     #  Defect collision with wall
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 295 or snake.head.ycor() < -295:
-        game_is_on = False
-        score.game_over()
+        # game_is_on = False
+        # score.game_over()
+        score.reset()
+        snake.reset()
 
     # Defect collision with tail
     # if head collides with any segment in the tail, trigger game over
     for segment in snake.segments[1:]:  # slice to skip the snake head
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            score.game_over()
-
+            # game_is_on = False
+            # score.game_over()
+            score.reset()
+            snake.reset()
 screen.exitonclick()
 
 # TODO 1: Implement play again feature
